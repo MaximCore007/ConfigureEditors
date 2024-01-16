@@ -1,0 +1,47 @@
+{
+    "tasks": [
+        {
+            "label": "build (in Docker)",
+            "type": "shell",
+            "command": "docker run --rm --volume ${workspaceFolder}/:/workspace prjdocker make",
+            "group": "build"
+        },
+        {
+            "label": "run program (in Docker)",
+            "type": "shell",
+            "command": "docker run --rm --volume ${workspaceFolder}/:/workspace prjdocker ./build/program",
+            "group": "build"
+        },
+        {
+            "label": "for debug (in Docker)",
+            "type": "shell",
+            "command": "docker run --rm --volume ${workspaceFolder}/:/workspace prjdocker make debug",
+            "group": "build"
+        },
+        {
+            "label": "clean (in Docker)",
+            "type": "shell",
+            "command": "docker run --rm --volume ${workspaceFolder}/:/workspace prjdocker make clean",
+            "group": "build"
+        },
+        {
+            "label": "Docker build image",
+            "type": "shell",
+            "command": "docker build -t prjdocker .",
+            "group": "build"
+        },
+        {
+            "label": "Docker remove container",
+            "type": "shell",
+            "command": "docker rm prjdocker",
+            "group": "build"
+        },
+        {
+            "label": "Docker remove image",
+            "type": "shell",
+            "command": "docker rmi prjdocker ",
+            "group": "build"
+        },
+    ],
+    "version": "2.0.0"
+}
